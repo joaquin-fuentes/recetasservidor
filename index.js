@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import morgan from "morgan"
+import path from "path"
 import * as dotenv from "dotenv"
 import "./src/database/dbConnection"
 import recetasRouter from "./src/routes/recetas.routes"
@@ -28,6 +29,7 @@ app.use(cors()) //permite conexiones remotas
 app.use(express.json())  //permite interpretar el formato JSON de una solicitud
 app.use(express.urlencoded({extended:true}))  //permite recibir en el objeto request los string y arrays
 app.use(morgan("dev")) //nos da informacion extra en la terminal
+app.use(express.static(path.join(__dirname,"/public")))  
 
 //rutas(siempre van al final)
 // http://localhost:4000/api/recetas
