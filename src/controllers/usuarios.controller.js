@@ -1,3 +1,4 @@
+// import generarJWT from "../helpers/token-sign";
 import Usuario from "../models/usuario"
 
 
@@ -23,12 +24,15 @@ export const login = async (req, res) => {
         });
       }
       
+      // generar el token
+    //   const token = await generarJWT(usuario._id, usuario.nombreUsuario)
+
       //responder que el usuario es correcto
-      
       res.status(200).json({
         mensaje: "El usuario existe",
         uid: usuario._id,
-        nombre: usuario.nombreUsuario,
+        nombre: usuario.nombreUsuario
+        // token: token
       });
       res.send(usuario)
     } catch (error) {
