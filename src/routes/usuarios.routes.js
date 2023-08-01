@@ -8,6 +8,8 @@ const router = Router()
 router.route("/usuarios")
 .get(obtenerUsuarios)
 .post(login)
+
+router.route("/usuarios/crear")
 .post([check("nombreUsuario")
         .notEmpty()
         .withMessage("El nombreUsuario es un dato obligatorio")]
